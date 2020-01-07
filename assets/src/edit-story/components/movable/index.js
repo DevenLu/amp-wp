@@ -1,7 +1,6 @@
 /**
  * External dependencies
  */
-import PropTypes from 'prop-types';
 import Moveable from 'react-moveable';
 
 /**
@@ -15,10 +14,10 @@ import { forwardRef, useContext } from '@wordpress/element';
 import Context from './context';
 import Overlay from './overlay';
 
-function MovableWithRef( { zIndex, ...moveableProps }, ref ) {
+function MovableWithRef( { ...moveableProps }, ref ) {
 	const { container } = useContext( Context );
 	return (
-		<Overlay zIndex={ zIndex }>
+		<Overlay>
 			<Moveable
 				ref={ ref }
 				container={ container }
@@ -27,10 +26,6 @@ function MovableWithRef( { zIndex, ...moveableProps }, ref ) {
 		</Overlay>
 	);
 }
-
-MovableWithRef.propTypes = {
-	zIndex: PropTypes.number,
-};
 
 const Movable = forwardRef( MovableWithRef );
 

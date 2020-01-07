@@ -14,7 +14,6 @@ import { useContext, createPortal } from '@wordpress/element';
  */
 import Context from './context';
 
-// DO NOT SUBMIT: discuss this concept and move this module into its own package.
 const DEFAULT_Z_INDEX = 10;
 
 const Wrapper = styled.div`
@@ -30,7 +29,9 @@ function Overlay( { zIndex, children } ) {
 		return null;
 	}
 	const slot = (
-		<Wrapper zIndex={ zIndex || DEFAULT_Z_INDEX }>
+		<Wrapper
+			zIndex={ zIndex || DEFAULT_Z_INDEX }
+			onMouseDown={ ( evt ) => evt.stopPropagation() }>
 			{ children }
 		</Wrapper>
 	);
