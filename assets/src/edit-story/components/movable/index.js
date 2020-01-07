@@ -1,8 +1,8 @@
 /**
  * External dependencies
  */
+import PropTypes from 'prop-types';
 import Moveable from 'react-moveable';
-import styled from 'styled-components';
 
 /**
  * WordPress dependencies
@@ -27,6 +27,10 @@ function MovableWithRef( { zIndex, ...moveableProps }, ref ) {
 		</Overlay>
 	);
 }
+
+MovableWithRef.propTypes = {
+	zIndex: PropTypes.number,
+};
 
 const Movable = forwardRef( MovableWithRef );
 
